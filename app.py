@@ -14,7 +14,7 @@ api.add_resource(Divide, "/division")
 
 @app.route('/')
 def hello_world():
-    return "Hello World!"
+    return "Welcome to my First Docker App in Python Makis Gennouzis"
 
 
 if __name__=="__main__":
