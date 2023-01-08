@@ -1,24 +1,22 @@
-# This function adds two numbers
-def add(x, y):
-    return x + y
-
-# This function subtracts two numbers
-def subtract(x, y):
-    return x - y
-
-# This function multiplies two numbers
-def multiply(x, y):
-    return x * y
-
-# This function divides two numbers
-def divide(x, y):
-    return x / y
+from flask import Flask, jsonify, request
+from flask_restful import Api, Resource
+from logic import Add, Subtract, Multiply, Divide
 
 
-print("Select operation.")
-print("1.Add")
-print("2.Subtract")
-print("3.Multiply")
-print("4.Divide")
+app = Flask(__name__)
+api = Api(app)
 
+api.add_resource(Add, "/add")
+api.add_resource(Subtract, "/subtract")
+api.add_resource(Multiply, "/multiply")
+api.add_resource(Divide, "/division")
+
+
+@app.route('/')
+def hello_world():
+    return "Hello World!"
+
+
+if __name__=="__main__":
+    app.run(host="0.0.0.0")
 
